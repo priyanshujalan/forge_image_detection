@@ -103,22 +103,22 @@ optimizer = RMSprop(lr=0.0005, rho=0.9, epsilon=1e-08, decay=0.0)
 model.compile(optimizer = optimizer , loss = "categorical_crossentropy", metrics=["accuracy"])
 
 model.summary()
-# #Define Early Stopping
-# early_stopping = EarlyStopping(monitor='val_accuracy',
-#                               min_delta=0,
-#                               patience=2,
-#                               verbose=0, mode='auto')
+#Define Early Stopping
+early_stopping = EarlyStopping(monitor='val_accuracy',
+                              min_delta=0,
+                              patience=2,
+                              verbose=0, mode='auto')
 
-# #Training the Model
-# epochs = 30
-# batch_size = 100
+#Training the Model
+epochs = 30
+batch_size = 100
 
-# history = model.fit(X_train, Y_train, batch_size = batch_size, epochs = epochs, 
-#           validation_data = (X_val, Y_val), verbose = 2)
+history = model.fit(X_train, Y_train, batch_size = batch_size, epochs = epochs, 
+          validation_data = (X_val, Y_val), verbose = 2)
 
 
-# # save model
-# model.save('./detection_model')
+# save model
+model.save('./detection_model')
 
 # # Create Confusion Matrix
 # def plot_confusion_matrix(cm, classes,
